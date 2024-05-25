@@ -1,0 +1,223 @@
+html {
+  font-size: 62.5%;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 1.6rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  background-color: rgb(255, 214, 224);
+}
+.header-title {
+  width: 100%;
+  height: 7vh;
+}
+.header-title__h1 {
+  display: flex;
+  align-items: center;
+  color: #2f0065;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-left: 5rem;
+  height: 100%;
+  /* padding: 1.5rem; */
+}
+.div-content {
+  width: 100%;
+  height: 93vh;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  border-top: 4px solid #b0cbe3;
+}
+.div-content__content-2 {
+  border-left: 4px solid #b0cbe3;
+  border-right: 4px solid #b0cbe3;
+}
+.div-content__content-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+#form_create_key {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+input[type="text"] {
+  height: 4rem;
+  width: 20rem;
+  outline: 0;
+}
+.all-Number {
+  display: flex;
+  gap: 5rem;
+}
+.all-Number p {
+  width: 9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.div-content__content-2,
+.div-content__content-3 {
+  width: 37%;
+  height: 100%;
+  /* background-color: rebeccapurple; */
+}
+.div-content__content-1 {
+  width: 26%;
+  height: 100%;
+  /* background-color: rebeccapurple; */
+}
+.div-content__content-1__h2 {
+  font-size: 2rem;
+  font-weight: 650;
+  /* margin-left: 12rem;
+  margin-top: -2.8rem; */
+}
+.cac-khoa-can-tao {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.cac-khoa-can-tao p {
+  width: 12rem;
+}
+.all-needKey {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.div-content__content-2__h2,
+.div-content__content-3__h2 {
+  font-size: 2rem;
+  font-weight: 650;
+  margin-left: 12.5rem;
+}
+.div-content__content-2,
+.div-content__content-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.div-content__content-2__form-chu-ky {
+  margin-bottom: 1.5rem;
+}
+.div-content__content-3__h2 {
+  position: relative;
+  top: 1.7rem;
+}
+#form-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+#form-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+#file_1_van_ban_ky,
+#file_3_chu_ky_check,
+#file_2_van_ban_ky_check {
+  display: none;
+}
+label,
+.all__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid orange;
+  background-color: #2e75b5;
+  width: 10rem;
+  height: 5rem;
+}
+.div-content__content-2__form-chu-ky__van-ban-ky__p,
+.div-content__content-3__form-chu-ky__van-ban-ky__p,
+.div-content__content-3__message__span {
+  width: 9rem;
+}
+.div-content__content-2__form-chu-ky__van-ban-ky,
+.div-content__content-3__form-chu-ky__van-ban-ky {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.div-content__content-2__form-chu-ky__sign-1 {
+  display: flex;
+  justify-content: center;
+}
+.div-content__content-2__form-chu-ky__chu-ky,
+.div-content__content-3__form-chu-ky__chu-ky {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.div-content__content-2__form-chu-ky__sign-2,
+.div-content__content-3__form-chu-ky__sign-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+#check_sign {
+  width: max-content;
+}
+.div-content__content-3__form-chu-ky__check-sign-btn {
+  display: flex;
+  justify-content: center;
+}
+.div-content__content-3__message,
+.div-content__content-3__message span {
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+  gap: 4.5rem;
+}
+.div-content__content-3 {
+  gap: 4rem;
+}
+.div-content__content-3__message {
+  margin-left: -14.8rem;
+}
+
+.check-number {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2rem;
+}
+/* THÊM STYLE */
+.hien-thi {
+  display: none;
+}
+.hien-bam-1 {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+.hien-bam-1__p {
+  width: 9rem;
+  margin-left: 2rem;
+  margin-right: 4rem;
+}
+
+.hien-bam-2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: -2rem;
+  margin-top: -2rem;
+}
+.hien-bam-2__p {
+  display: flex;
+  align-items: center;
+  width: 9rem;
+  margin-left: 2rem;
+  margin-right: 4.2rem;
+}

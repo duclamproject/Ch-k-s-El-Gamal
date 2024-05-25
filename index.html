@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>BTL: An toàn bảo mật thông tin</title>
+  </head>
+  <body>
+    <header class="header-title">
+      <h2 class="header-title__h1">Chữ ký điện tử</h2>
+    </header>
+    <div class="div-content">
+      <!-- CỘT 1 -->
+      <div class="div-content__content-1">
+        <h2 class="div-content__content-1__h2">Tạo khóa</h2>
+        <div class="cac-khoa-can-tao">
+          <!-- MUỐN HIỂN THỊ HAY KHÔNG? -->
+          <div class="hien-thi">
+            <div class="all-needKey khoa-cong-khai">
+              <p class="khoa-cong-khai__p">Khóa công khai:</p>
+              <textarea
+                name="hienThiKpub"
+                id="hienThiKpub"
+                cols="25"
+                rows="7"
+              ></textarea>
+            </div>
+            <div class="all-needKey khoa-bi-mat">
+              <p class="khoa-bi-mat__p">Khóa bí mật:</p>
+              <textarea
+                name="hienThiKpr"
+                id="hienThiKpr"
+                cols="25"
+                rows="2"
+              ></textarea>
+            </div>
+            <div class="all-needKey bo-sung-k">
+              <p class="bo-sung-k__p">Số k:</p>
+              <textarea
+                name="hienThiK"
+                id="hienThiK"
+                cols="25"
+                rows="2"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="div-btn-crtKey">
+          <button class="all__btn" id="create-key">Tạo khóa</button>
+        </div>
+      </div>
+      <!-- END CỘT 1 -->
+
+      <!-- CỘT 2 -->
+      <div class="div-content__content-2">
+        <h2 class="div-content__content-2__h2">Phát sinh chữ ký</h2>
+        <div class="div-content__content-2__form-chu-ky">
+          <!-- FORM CỘT 2 -->
+          <div class="form-chu-ky" id="form-1">
+            <div class="div-content__content-2__form-chu-ky__van-ban-ky">
+              <p class="div-content__content-2__form-chu-ky__van-ban-ky__p">
+                Văn bản ký:
+              </p>
+              <div
+                class="div-content__content-2__form-chu-ky__van-ban-ky__infor"
+              >
+                <textarea
+                  name="textarea"
+                  id="text-ky"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+              <label for="file_1_van_ban_ky">
+                File
+                <input
+                  type="file"
+                  name="File"
+                  id="file_1_van_ban_ky"
+                  accept=".docx, .txt"
+              /></label>
+            </div>
+            <div class="div-content__content-2__form-chu-ky__sign-1">
+              <button class="all__btn" id="sign">Ký</button>
+            </div>
+            <div class="hien-bam-1">
+              <p class="hien-bam-1__p">Hàm băm:</p>
+              <textarea name="bam-1" id="bam-1" cols="30" rows="2"></textarea>
+            </div>
+            <div class="div-content__content-2__form-chu-ky__chu-ky">
+              <p class="div-content__content-2__form-chu-ky__van-ban-ky__p">
+                Chữ ký:
+              </p>
+              <div
+                class="div-content__content-2__form-chu-ky__van-ban-ky__infor"
+              >
+                <textarea
+                  name="textarea"
+                  id="text-cky"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+              <div class="div-content__content-2__form-chu-ky__sign-2">
+                <button class="all__btn" id="chuyen">Chuyển</button>
+                <button class="all__btn" id="ctn">Lưu</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END CỘT 2 -->
+
+      <!-- CỘT 3 -->
+      <div class="div-content__content-3">
+        <h2 class="div-content__content-3__h2">Kiểm tra chữ ký</h2>
+        <div class="div-content__content-3__form-chu-ky">
+          <!-- <form action="" id="form-2"> -->
+          <div id="form-2">
+            <div class="div-content__content-3__form-chu-ky__van-ban-ky">
+              <p class="div-content__content-3__form-chu-ky__van-ban-ky__p">
+                Văn bản ký:
+              </p>
+              <div
+                class="div-content__content-3__form-chu-ky__van-ban-ky__infor"
+              >
+                <textarea
+                  name="textarea"
+                  id="text-check-ky"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+              <form>
+                <label for="file_2_van_ban_ky_check">
+                  File văn bản
+                  <input
+                    type="file"
+                    name="File"
+                    id="file_2_van_ban_ky_check"
+                    accept=".docx, .txt"
+                /></label>
+              </form>
+            </div>
+            <div class="div-content__content-3__form-chu-ky__chu-ky">
+              <p class="div-content__content-3__form-chu-ky__van-ban-ky__p">
+                Chữ ký:
+              </p>
+              <div
+                class="div-content__content-3__form-chu-ky__van-ban-ky__infor"
+              >
+                <textarea
+                  name="textarea"
+                  id="text-check-cky"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+              <div class="div-content__content-3__form-chu-ky__sign-2">
+                <label for="file_3_chu_ky_check">
+                  File chữ ký
+                  <input
+                    type="file"
+                    name="file"
+                    id="file_3_chu_ky_check"
+                    accept=".docx, .txt"
+                /></label>
+              </div>
+            </div>
+            <div class="div-content__content-3__form-chu-ky__check-sign-btn">
+              <button class="all__btn" id="check_sign">Kiểm tra chữ ký</button>
+            </div>
+          </div>
+          <!-- </form> -->
+        </div>
+        <div class="hien-bam-2">
+          <p class="hien-bam-2__p">Hàm băm:</p>
+          <textarea name="bam-2" id="bam-2" cols="30" rows="2"></textarea>
+        </div>
+        <div class="div-content__content-3__message">
+          <span class="div-content__content-3__message__span">Thông báo</span>
+          <textarea name="message" id="message" cols="30" rows="2"></textarea>
+        </div>
+      </div>
+      <!-- END CỘT 3 -->
+    </div>
+
+    <!-- HIỂN THỊ SỐ CHO VIỆC TẠO KHÓA -->
+    <div class="check-number">
+      <input id="soA" type="number" placeholder="Số A" />
+      <input id="soAlpha" type="number" placeholder="Số Alpha" />
+      <input id="soP" type="number" placeholder="Số P" />
+      <input id="soK" type="number" placeholder="Số K" />
+      <input id="beta" type="number" placeholder="Số Beta" />
+      <input id="deta" type="text" placeholder="Số Deta" />
+      <input id="gama" type="number" placeholder="Số Gama" />
+    </div>
+    <!-- FILE SCRIPT -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.4/mammoth.browser.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/big-integer/1.6.48/BigInteger.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script src="script.js"></script>
+    <!-- END PROJECT -->
+  </body>
+</html>
