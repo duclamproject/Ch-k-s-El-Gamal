@@ -165,7 +165,7 @@ label,
 .div-content__content-3__form-chu-ky__sign-2 {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
 }
 #check_sign {
   width: max-content;

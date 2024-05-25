@@ -6,6 +6,8 @@ let kiemTra = document.querySelector("#check_sign");
 let fileInputVBKy = document.querySelector("#file_1_van_ban_ky");
 let fileInputVBKyCheck = document.querySelector("#file_2_van_ban_ky_check");
 let fileInputCKyCheck = document.querySelector("#file_3_chu_ky_check");
+let saveFileTXT = document.querySelector("#saveFileTXT");
+let saveFileDOCX = document.querySelector("#saveFileDOCX");
 // FUNCTIONS:
 // CHUYỂN NHỊ PHÂN
 function chuyenNhiPhan(number) {
@@ -102,8 +104,8 @@ function isGCD(a, b) {
   }
 }
 
-// TÍNH DETA - GAMA
-function detaGama(x) {
+// TÍNH DETA - GAMA KHI KÝ
+function detaGama(text) {
   let soP = parseInt(document.querySelector("#soP").value);
   let soAlpha = parseInt(document.querySelector("#soAlpha").value);
   let soA = parseInt(document.querySelector("#soA").value);
@@ -113,19 +115,14 @@ function detaGama(x) {
   document.querySelector("#gama").value = gama;
 
   let res = euclide(soK, soP - 1);
-  // COPPY
   var chuKy = [];
-  const bam = CryptoJS.MD5(x).toString(CryptoJS.enc.Hex);
+  const bam = CryptoJS.MD5(text).toString(CryptoJS.enc.Hex);
+
   var x = [];
   let run = 0;
   for (let i = 0; i < 4; i++) {
     x.push(bam.slice(run, run + 8));
     run += 8;
-  }
-  console.log("HASH: " + x);
-
-  for (let i = 0; i < 4; i++) {
-    console.log(parseInt(x[i], 16));
   }
 
   for (let i = 0; i < x.length; i++) {
@@ -255,8 +252,8 @@ taoKhoa.addEventListener("click", () => {
 
 // KÝ
 ky.addEventListener("click", () => {
-  let x = document.querySelector("#text-ky").value;
-  detaGama(x);
+  let text = document.querySelector("#text-ky").value;
+  detaGama(text);
 });
 
 // CHUYỂN
@@ -276,14 +273,14 @@ let x = "hello các bạn?";
 k = x.split(" ");
 console.log(k);
 
-// CHỨC NĂNG VỀ FILE
+// CHỨC NĂNG VỀ FILE BAO GỒM CẢ: FUNC + THAO TÁC
 fileInputVBKy.addEventListener("change", (event) => {
   const { files } = event.target;
 
   console.log("files", files);
 });
 
-// FILE INPUT VĂN BẢN KÝ
+// FILE 1: INPUT VĂN BẢN KÝ
 fileInputVBKy.addEventListener("change", function (event) {
   const file = event.target.files[0];
   if (file) {
@@ -293,9 +290,12 @@ fileInputVBKy.addEventListener("change", function (event) {
       reader.onload = function (e) {
         const arrayBuffer = e.target.result;
         mammoth
-          .extractRawText({ arrayBuffer: arrayBuffer })
+          .convertToHtml({ arrayBuffer: arrayBuffer })
           .then(function (result) {
-            document.getElementById("text-ky").innerHTML = result.value;
+            document.getElementById("text-ky").value = result.value.replace(
+              /<\/?[^>]+(>|$)/g,
+              ""
+            );
           })
           .catch(function (err) {
             console.error("Error reading .docx file:", err);
@@ -305,7 +305,7 @@ fileInputVBKy.addEventListener("change", function (event) {
     } else if (file.name.endsWith(".txt")) {
       reader.onload = function (e) {
         const text = e.target.result;
-        document.getElementById("text-ky").innerHTML = text;
+        document.getElementById("text-ky").value = text;
       };
       reader.readAsText(file);
     } else {
@@ -316,7 +316,7 @@ fileInputVBKy.addEventListener("change", function (event) {
   }
 });
 
-// FILE INPUT VĂN BẢN KÝ CHECK
+// FILE 2: INPUT VĂN BẢN KÝ CHECK
 fileInputVBKyCheck.addEventListener("change", () => {
   document.getElementById("text-check-ky").innerHTML = "Đang chuyển dữ liệu";
 });
@@ -329,11 +329,10 @@ fileInputVBKyCheck.addEventListener("change", function (event) {
       reader.onload = function (e) {
         const arrayBuffer = e.target.result;
         mammoth
-          .extractRawText({ arrayBuffer: arrayBuffer })
+          .convertToHtml({ arrayBuffer: arrayBuffer })
           .then(function (result) {
-            document.querySelector("#text-check-ky").textContent =
-              "Đang chuyển dữ liệu";
-            document.querySelector("#text-check-ky").innerHTML = result.value;
+            document.querySelector("#text-check-ky").value =
+              result.value.replace(/<\/?[^>]+(>|$)/g, "");
           })
           .catch(function (err) {
             console.error("Error reading .docx file:", err);
@@ -343,9 +342,7 @@ fileInputVBKyCheck.addEventListener("change", function (event) {
     } else if (file.name.endsWith(".txt")) {
       reader.onload = function (e) {
         const text = e.target.result;
-        document.getElementById("text-check-ky").textContent =
-          "Đang chuyển dữ liệu";
-        document.getElementById("text-check-ky").innerHTML = text;
+        document.getElementById("text-check-ky").value = text;
       };
       reader.readAsText(file);
     } else {
@@ -356,7 +353,7 @@ fileInputVBKyCheck.addEventListener("change", function (event) {
   }
 });
 
-// FILE INPUT CHỮ KÝ CHECK
+// FILE 3: INPUT CHỮ KÝ CHECK
 fileInputCKyCheck.addEventListener("change", function (event) {
   const file = event.target.files[0];
   if (file) {
@@ -366,9 +363,10 @@ fileInputCKyCheck.addEventListener("change", function (event) {
       reader.onload = function (e) {
         const arrayBuffer = e.target.result;
         mammoth
-          .extractRawText({ arrayBuffer: arrayBuffer })
+          .convertToHtml({ arrayBuffer: arrayBuffer })
           .then(function (result) {
-            document.getElementById("text-check-cky").innerHTML = result.value;
+            document.getElementById("text-check-cky").value =
+              result.value.replace(/<\/?[^>]+(>|$)/g, "");
           })
           .catch(function (err) {
             console.error("Error reading .docx file:", err);
@@ -378,7 +376,7 @@ fileInputCKyCheck.addEventListener("change", function (event) {
     } else if (file.name.endsWith(".txt")) {
       reader.onload = function (e) {
         const text = e.target.result;
-        document.getElementById("text-check-cky").innerHTML = text;
+        document.getElementById("text-check-cky").value = text;
       };
       reader.readAsText(file);
     } else {
@@ -387,4 +385,27 @@ fileInputCKyCheck.addEventListener("change", function (event) {
   } else {
     console.log("No file selected");
   }
+});
+
+// DOWNLOAD FILE
+// TXT
+saveFileTXT.addEventListener("click", () => {
+  const content = "Chữ ký: " + document.querySelector("#deta").value;
+  const fileName = "chuKy.txt";
+  const file = new File([content], fileName, {
+    type: content.type,
+  });
+
+  saveAs(file);
+});
+
+// DOCX
+saveFileDOCX.addEventListener("click", () => {
+  const content = "Chữ ký: " + document.querySelector("#deta").value;
+  const fileName = " .docx";
+  const file = new File([content], fileName, {
+    type: content.type,
+  });
+
+  saveAs(file);
 });
