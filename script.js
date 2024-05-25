@@ -391,21 +391,31 @@ fileInputCKyCheck.addEventListener("change", function (event) {
 // TXT
 saveFileTXT.addEventListener("click", () => {
   const content = "Chữ ký: " + document.querySelector("#deta").value;
-  const fileName = "chuKy.txt";
+  const fileName = "DownloadSign.txt";
   const file = new File([content], fileName, {
     type: content.type,
   });
 
   saveAs(file);
 });
-
 // DOCX
 saveFileDOCX.addEventListener("click", () => {
   const content = "Chữ ký: " + document.querySelector("#deta").value;
-  const fileName = " .docx";
-  const file = new File([content], fileName, {
-    type: content.type,
+  const fileName = "DownloadSign.docx";
+
+  const doc = new window.docx.Document({
+    sections: [
+      {
+        children: [
+          new window.docx.Paragraph({
+            text: content,
+          }),
+        ],
+      },
+    ],
   });
 
-  saveAs(file);
+  window.docx.Packer.toBlob(doc).then((blob) => {
+    saveAs(blob, fileName);
+  });
 });
